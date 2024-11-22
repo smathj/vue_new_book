@@ -6,6 +6,7 @@ import MixLayout from "@/components/MixLayout.vue";
 import DynamicLayout from "@/components/DynamicLayout.vue";
 import BasicScope from "@/components/BasicScope.vue";
 import BasicScope2 from "@/components/BasicScope2.vue";
+import BasicMix from "@/components/BasicMix.vue";
 
 const initObj = {
   appUserName: '관리자',
@@ -31,6 +32,7 @@ export default {
   },
   // 컴포넌트 지역 등록시
   components: {
+    BasicMix,
     BasicScope2,
     BasicScope,
     DynamicLayout,
@@ -86,7 +88,18 @@ const arr = ['header']
 <template>
   <h1 ref="h1DomElement">App 컴포넌트</h1>
 
-
+  <fieldset>
+    <FirstChild ref="firstChild"/>
+  </fieldset>
+  <!--
+    v-bind:name
+    v-bind:age
+  -->
+  <!--  <UserProfile ref="child1" @fn-callback="fnCallback" :name="appUserName" :age="appUserAge" />-->
+  <!--  <UserProfile ref="child2" @fn-callback="fnCallback" :name="`홍길동`" :age="10"/>-->
+  <fieldset>
+    <UserProfile ref="child3" @fn-callback="fnCallback"/>
+  </fieldset>
 
   <fieldset>
     <legend>slot - 기본 레이아웃</legend>
@@ -163,37 +176,15 @@ const arr = ['header']
 
   <fieldset>
     <legend>slot - 이름이 있는 슬롯과 범위가 지정된 슬롯의 혼합 사용</legend>
-    <BasicScope2 v-slot="{ message, count}">
-      <h1>범위: {{ message }} / {{ count }}</h1>
-    </BasicScope2>
-  </fieldset>
+    <BasicMix>
+      <template #header="headerProps">
+        <h1>{{ headerProps.message }}</h1>
+      </template>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <fieldset>
-    <FirstChild ref="firstChild"/>
-  </fieldset>
-  <!--
-    v-bind:name
-    v-bind:age
-  -->
-  <!--  <UserProfile ref="child1" @fn-callback="fnCallback" :name="appUserName" :age="appUserAge" />-->
-  <!--  <UserProfile ref="child2" @fn-callback="fnCallback" :name="`홍길동`" :age="10"/>-->
-  <fieldset>
-    <UserProfile ref="child3" @fn-callback="fnCallback"/>
+      <template #main="{ count }">
+        <h1>{{ count }}</h1>
+      </template>
+    </BasicMix>
   </fieldset>
 
 

@@ -3,7 +3,7 @@ export default {
   name: "BasicMix",
   data() {
     return {
-      name: 'child',
+      message: 'BasicMix 의 data 속성값',
       count: 10,
     };
   },

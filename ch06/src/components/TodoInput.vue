@@ -7,11 +7,13 @@ export default {
     };
   },
   // emits: ['addTodo', 'fnLog'],
-  emits: ['addTodo'],
+  // emits: ['addTodo'],
+  emits: ['add-todo'],
   methods: {
     addTodo() {
       console.log('TodoInput 의 addTodo 호출')
-      this.$emit('addTodo', this.inputMsg)
+      // this.$emit('addTodo', this.inputMsg)
+      this.$emit('add-todo', this.inputMsg)
       this.inputMsg = ''
 
     }

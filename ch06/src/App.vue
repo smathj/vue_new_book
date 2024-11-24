@@ -55,7 +55,20 @@ export default defineComponent({
 
 <template>
   <div class="todo">
+<!--
+    props 로 current 를 넘겨준다
+    컴포넌트 커스텀 이벤트로 update-tab 라는 이름으로 updateTab 함수를 등록
+-->
     <TodoHeader :current="current" @update-tab="updateTab"/>
+
+<!--
+    props 로 computed-todo 을 넘기지만 실제론 카멜케이스로
+    TodoList 에서 computedTodo 로 받는다
+
+    컴포넌트 커스텀 이벤트로 delete-todo, update-todo
+    이때 emits 를 사용해서 사용할 수 있고
+    이때 배열의 순서보단 글자수가 매칭되면된다
+-->
     <TodoList
         :computed-todo="computedTodo"
         @delete-todo="deleteTodo"

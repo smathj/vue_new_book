@@ -9,6 +9,7 @@ export default {
       }
     }
   },
+  // emits: ['delete-todo', 'update-todo'],
   mounted() {
     console.log('TodoList 마운트')
     console.log(this.computedTodo)

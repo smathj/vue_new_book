@@ -1,0 +1,41 @@
+<script setup>
+
+import {ref, watch, watchEffect, watchPostEffect} from "vue";
+
+const message = ref('');
+const messageParagraph = ref(null);
+
+watch(message, () => {
+  if (message.value) {
+    console.log(`watch:${messageParagraph.value.innerText}`)
+  }
+})
+
+watchEffect(() => {
+  if (message.value) {
+    console.log(`watchEffect:${messageParagraph.value.innerText}`)
+  }
+})
+
+watchPostEffect(() => {
+  if (message.value) {
+    console.log(`watchPostEffect:${messageParagraph.value.innerText}`)
+  }
+})
+
+
+</script>
+
+<template>
+  <fieldset>
+    <legend>watchPostEffect - 첫번째 예제</legend>
+    <div>
+      <input type="text" v-model="message" placeholder="메세지를 입력하세요">
+      <p ref="messageParagraph">{{ message }}</p>
+    </div>
+  </fieldset>
+</template>
+
+<style scoped>
+
+</style>

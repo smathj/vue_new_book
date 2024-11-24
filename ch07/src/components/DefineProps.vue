@@ -1,6 +1,8 @@
 <script setup>
 
-
+/**
+ * defineProps({...}) 로 프로퍼티를 정의한다
+ */
 const props = defineProps({
   count: Number,
   // v1.

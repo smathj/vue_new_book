@@ -47,6 +47,10 @@ const stateCountIncrement = (direct, arr) => {
 }
 
 
+
+/**
+ * 프로바이더에 데이터 저장
+ */
 const fruits = reactive(['apples', 'bananas', 'oranges'])
 const fruitsTxt = computed(() => `I like ${fruits[0]}`)
 
@@ -75,7 +79,8 @@ provide('userObj', {name: 'sucoding', age: 20})
 <!--  <WatchEffectEx1 />-->
 <!--  <WatchPostEffectEx1 />-->
 <!--  <LifeCycleHooks v-if="showComponent" @click="toggleComponent"/>-->
-<!--  <DefineProps :count="count" :state="state" />-->
+<!--  <DefineProps v-bind:count="count" :state="state" />-->
+
 <!--  <fieldset>-->
 <!--  <legend>emit - 첫번째 예제</legend>-->
 <!--    <h1>{{ count }}</h1>-->
@@ -85,6 +90,7 @@ provide('userObj', {name: 'sucoding', age: 20})
 <!--        @state-count-increment="(arr) => stateCountIncrement(50, arr)"-->
 <!--    />-->
 <!--  </fieldset>-->
+
   <Inject />
 </template>
 

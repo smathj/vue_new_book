@@ -4,11 +4,13 @@ import {computed, reactive, ref} from "vue";
 
 console.log('ComputedEx3.vue')
 
+//* 반응형 데이터
 const refCount = ref(10);
 const reactiveCount = reactive({count: 20});
 
-
+//? 미리 계산된 속성
 // ref() 데이터를 활용할 때는 value 속성 사용
+//! computed 에는 get / set 으로 나눌 수 있다
 const refDoubleCount = computed({
   get() {
     return refCount.value * 2;
@@ -18,7 +20,9 @@ const refDoubleCount = computed({
   }
 });
 
+
 // reactive() 데이터는 value 속성이 필요 없다
+//! computed 에는 get / set 으로 나눌 수 있다
 const reactiveDoubleCount = computed({
   get() {
     return reactiveCount.count * 2
@@ -47,7 +51,7 @@ setTimeout(() => {
 
   <fieldset>
     <legend>computed - 네번째 예제(비권장)</legend>
-    <h1>{{ refDoubleCount }}</h1>
+    <h1>{{ refDoubleCount }}</h1>                   <!--options 처럼 함수명을 사용-->
     <h1> {{ reactiveDoubleCount }}</h1>
   </fieldset>
 </template>

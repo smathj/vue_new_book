@@ -28,7 +28,7 @@ watchPostEffect(() => {
 
 <template>
   <fieldset>
-    <legend>watchPostEffect - 첫번째 예제</legend>
+    <legend>watchPostEffect - 첫번째 예제(watch 시리즈 호출시점)</legend>
     <div>
       <input type="text" v-model="message" placeholder="메세지를 입력하세요">
       <p ref="messageParagraph">{{ message }}</p>

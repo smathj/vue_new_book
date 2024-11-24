@@ -60,6 +60,13 @@ export default {
     nameWatch(newName, oldName) {
       console.log(`oldName = ${oldName} => newName = ${newName}`)
     },
+    // 깊은 감시
+    age: {
+      handler(newAge, oldAge) {
+        console.log(`oldAge = ${oldAge} => newAge = ${newAge}`)
+      },
+      deep: true,
+    }
   },
 
   mounted() {
@@ -69,6 +76,12 @@ export default {
     const radioArr = [...document.querySelectorAll('input[name=radioGroup]')];
     const [filterDom] = radioArr.filter((dom) => dom.checked == true)
     this.fnRadio(filterDom.value)
+
+    // 깊은 감시하는 age 는 이 시점 조차 감지한다
+    this.age = 10;
+
+    // 일반 감시는 이 시점에 감지 못한다
+    this.name = '광수';
   }
 }
 </script>
@@ -177,6 +190,10 @@ export default {
  */
   span {
     font-size: 25px;
+  }
+
+  fieldset{
+    margin-bottom: 30px;
   }
 
 

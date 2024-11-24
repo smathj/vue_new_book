@@ -6,9 +6,11 @@ export default {
       inputMsg: '',
     };
   },
+  // emits: ['addTodo', 'fnLog'],
   emits: ['addTodo'],
   methods: {
     addTodo() {
+      console.log('TodoInput 의 addTodo 호출')
       this.$emit('addTodo', this.inputMsg)
       this.inputMsg = ''
 
@@ -27,6 +29,8 @@ export default {
            class="todo__input-text"
            placeholder="할 일을 입력하세요.">
     <button class="todo__input-btn" @click="addTodo">등록</button>
+<!--    <button class="todo__input-btn" @click="() => $emit('my-test', '여기')">등록2</button>-->
+<!--    <button class="todo__input-btn" @click="$emit('my-test', '여기')">등록3</button>-->
   </div>
 </template>
 

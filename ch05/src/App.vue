@@ -14,7 +14,7 @@ const initObj = {
   area1: 'header',
   header: 'header',
   message: 'parent',
-  count: 0,
+  count: 0
 
 }
 export default {
@@ -87,6 +87,13 @@ const arr = ['header']
 
 <template>
   <h1 ref="h1DomElement">App 컴포넌트</h1>
+
+<!--
+  <fieldset>
+    <legend>사용자 정의 속성의 유효성 검사</legend>
+    <FirstChild :user-name="userName"  />
+  </fieldset>
+-->
 
   <fieldset>
     <FirstChild ref="firstChild"/>
